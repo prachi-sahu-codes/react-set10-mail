@@ -28,16 +28,6 @@ export const DataProvider = ({ children }) => {
         });
         return { ...state, mails: updatedMail };
 
-      case "SPAM":
-        const spammedMail = state.mails.map((email) => {
-          if (email.mId === action.payload.mId) {
-            return { ...email, isSpammed: true };
-          } else {
-            return email;
-          }
-        });
-        return { ...state, mails: spammedMail };
-
       case "RESTORE":
         const restoreMail = state.mails.map((email) => {
           if (email.mId === action.payload.mId) {
@@ -48,6 +38,16 @@ export const DataProvider = ({ children }) => {
         });
         return { ...state, mails: restoreMail };
 
+      case "SPAM":
+        const spammedMail = state.mails.map((email) => {
+          if (email.mId === action.payload.mId) {
+            return { ...email, isSpammed: true };
+          } else {
+            return email;
+          }
+        });
+        return { ...state, mails: spammedMail };
+
       case "STAR-UNSTAR":
         const starredMail = state.mails.map((email) => {
           if (email.mId === action.payload.mId) {
@@ -57,6 +57,16 @@ export const DataProvider = ({ children }) => {
           }
         });
         return { ...state, mails: starredMail };
+
+      case "READ-UNREAD":
+        const readUnreadMail = state.mails.map((email) => {
+          if (email.mId === action.payload.mId) {
+            return { ...email, unread: !email.unread };
+          } else {
+            return email;
+          }
+        });
+        return { ...state, mails: readUnreadMail };
 
       default:
         console.log("Something went wrong");
@@ -78,8 +88,8 @@ export const DataProvider = ({ children }) => {
       !mail.isSpammed
   );
 
-  const unread = state.mails.reduce(
-    (acc, obj) => (obj.unread ? acc + 1 : acc),
+  const unread = filteredMails.reduce(
+    (acc, email) => (email.unread ? acc + 1 : acc),
     0
   );
 

@@ -8,7 +8,7 @@ export const Spam = () => {
   return (
     <div className="main-content">
       {spammedMails.length === 0 ? (
-        <h1>Your spam list is empty!</h1>
+        <h1 className="emptyListTitle">Your spam list is empty!</h1>
       ) : (
         <>
           <h1>Spammed Mails</h1>

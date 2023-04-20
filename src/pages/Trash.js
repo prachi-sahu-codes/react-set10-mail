@@ -8,7 +8,7 @@ export const Trash = () => {
   return (
     <div className="main-content">
       {deletedMails.length === 0 ? (
-        <h1>Your trash is empty!</h1>
+        <h1 className="emptyListTitle">Your trash is empty!</h1>
       ) : (
         <>
           <h1>Deleted Mails</h1>

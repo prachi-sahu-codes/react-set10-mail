@@ -41,7 +41,7 @@ export const Card = ({
           </Link>
         )}
         <div>
-          {isDeleted === true ? (
+          {isDeleted ? (
             <button
               className="btn-del"
               onClick={() => dispatch({ type: "RESTORE", payload: { mId } })}
@@ -57,7 +57,12 @@ export const Card = ({
             </button>
           )}
 
-          <button className="btn-read">Mark as Read</button>
+          <button
+            className="btn-read"
+            onClick={() => dispatch({ type: "READ-UNREAD", payload: { mId } })}
+          >
+            Mark as {unread ? <span>Unread</span> : <span>Read</span>}
+          </button>
 
           <button
             className="btn-spam"

@@ -10,16 +10,8 @@ export const Inbox = () => {
     <div className="main-content">
       <Filters />
       <p className="unread-title">
-        Unread:{" "}
-        <span
-          style={{
-            fontSize: "1.7rem",
-            paddingLeft: "0.3rem",
-            paddingBottom: "0.5rem",
-          }}
-        >
-          {unread}
-        </span>
+        Unread:
+        <span className="unread-count">{unread}</span>
       </p>
       <ul className="card-list">
         {filteredMails.map((mail) => (
