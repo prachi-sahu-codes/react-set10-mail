@@ -4,8 +4,8 @@ export const Filters = () => {
   const { state, dispatch } = useData();
 
   return (
-    <>
-      <h4>Filters </h4>
+    <div className="filter-main">
+      <h3 className="filter-title">Filters </h3>
       <label>
         <input
           type="checkbox"
@@ -24,6 +24,6 @@ export const Filters = () => {
         />
         Show starred mails
       </label>
-    </>
+    </div>
   );
 };

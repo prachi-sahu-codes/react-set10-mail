@@ -11,24 +11,86 @@ export const DataProvider = ({ children }) => {
 
   const mailReducer = (state, action) => {
     switch (action.type) {
-      case "READ":
-        return state.filter((mail) => mail.unread);
+      //checkboxes
       case "STARRED":
-        return state.filter((mail) => mail.isStarred);
+        return { ...state, isStarred: !state.isStarred };
+
+      case "READ":
+        return { ...state, isRead: !state.isRead };
+      //buttons
+      case "DELETE":
+        const updatedMail = state.mails.map((email) => {
+          if (email.mId === action.payload.mId) {
+            return { ...email, isDeleted: true };
+          } else {
+            return email;
+          }
+        });
+        return { ...state, mails: updatedMail };
+
+      case "SPAM":
+        const spammedMail = state.mails.map((email) => {
+          if (email.mId === action.payload.mId) {
+            return { ...email, isSpammed: true };
+          } else {
+            return email;
+          }
+        });
+        return { ...state, mails: spammedMail };
+
+      case "RESTORE":
+        const restoreMail = state.mails.map((email) => {
+          if (email.mId === action.payload.mId) {
+            return { ...email, isDeleted: !email.isDeleted };
+          } else {
+            return email;
+          }
+        });
+        return { ...state, mails: restoreMail };
+
+      case "STAR-UNSTAR":
+        const starredMail = state.mails.map((email) => {
+          if (email.mId === action.payload.mId) {
+            return { ...email, isStarred: !email.isStarred };
+          } else {
+            return email;
+          }
+        });
+        return { ...state, mails: starredMail };
+
       default:
         console.log("Something went wrong");
         return state;
     }
   };
 
-  const [state, dispatch] = useReducer(mailReducer, [...mailData]);
+  const [state, dispatch] = useReducer(mailReducer, {
+    mails: [...mailData],
+    isRead: false,
+    isStarred: false,
+  });
+
+  const filteredMails = state.mails.filter(
+    (mail) =>
+      (state.isRead ? mail.unread : true) &&
+      (state.isStarred ? mail.isStarred : true) &&
+      !mail.isDeleted &&
+      !mail.isSpammed
+  );
+
+  const unread = state.mails.reduce(
+    (acc, obj) => (obj.unread ? acc + 1 : acc),
+    0
+  );
 
   return (
     <DataContext.Provider
       value={{
         mailData,
+        filteredMails,
         state,
         dispatch,
+        unread,
       }}
     >
       {children}

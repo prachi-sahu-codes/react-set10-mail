@@ -4,13 +4,25 @@ import { Card } from "../component/Card";
 import { Filters } from "../component/Filters";
 
 export const Inbox = () => {
-  const { state } = useData();
+  const { filteredMails, unread } = useData();
+
   return (
     <div className="main-content">
       <Filters />
-      <div className="unread-title">Unread: </div>
+      <p className="unread-title">
+        Unread:{" "}
+        <span
+          style={{
+            fontSize: "1.7rem",
+            paddingLeft: "0.3rem",
+            paddingBottom: "0.5rem",
+          }}
+        >
+          {unread}
+        </span>
+      </p>
       <ul className="card-list">
-        {state.map((mail) => (
+        {filteredMails.map((mail) => (
           <li
             key={mail.mId}
             className="card"
