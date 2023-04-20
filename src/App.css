@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;0,800;0,900;1,500;1,700;1,800&display=swap");
+
+.App {
+  font-family: "Alegreya Sans", sans-serif;
+}
+
+/*****Main page*****/
+
+.main-heading {
+  text-align: center;
+}
+
+.view-flex {
+  display: grid;
+  grid-template-columns: 10rem auto;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 2rem;
+  font-size: 1.3rem;
+  margin: 0 1rem;
+}
+
+.main-content {
+  padding: 1rem;
+}
+
+.navLink {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+}
+
+/************filter*************/
+
+/************unread*************/
+
+.unread-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 1rem 0;
+}
+
+/********Card**********/
+
+.card-list {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  list-style: none;
+  width: 95%;
+  border: 1px solid rgb(199, 199, 199);
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.card-head {
+  font-size: 1.4rem;
+  margin: 1rem 0;
+}
+.card-info {
+  word-spacing: 1.8px;
+}
+
+/********flex********/
+.btn-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/***********Btn***********/
+.btn-del,
+.btn-read,
+.btn-spam,
+.btn-star {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  margin: 0 1rem;
+  background-color: #fff;
+  box-shadow: 0 1px 5px #d9d9d9;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: azure;
+}
+
+button:active {
+  box-shadow: none;
+}
+
+.btn-del {
+  color: red;
+}
+.btn-read {
+  color: #155b9e;
+}
+.btn-spam {
+  color: #16bf16;
+}
+.btn-star {
+  color: #ff9b18;
+}
