@@ -105,7 +105,7 @@ export const DataProvider = ({ children }) => {
         filteredMails,
         state,
         dispatch,
-        // unread,
+        setMailData,
       }}
     >
       {children}
