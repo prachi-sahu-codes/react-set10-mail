@@ -9,7 +9,10 @@ export const MailDetail = () => {
   return (
     <div className="main-content">
       <h1>Mail Details</h1>
-      <div className="card">
+      <div
+        className="card"
+        style={{ backgroundColor: findMail.unread ? "#ecfdfd" : "#d5f0ff" }}
+      >
         <Card {...findMail} noDetail />
       </div>
     </div>

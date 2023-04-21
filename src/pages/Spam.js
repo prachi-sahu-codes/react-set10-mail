@@ -17,7 +17,7 @@ export const Spam = () => {
               <li
                 key={mail.mId}
                 className="card"
-                style={{ backgroundColor: mail.unread ? "#F0FAFF" : "#FAFFFF" }}
+                style={{ backgroundColor: mail.unread ? "#ecfdfd" : "#d5f0ff" }}
               >
                 <Card {...mail} />
               </li>
