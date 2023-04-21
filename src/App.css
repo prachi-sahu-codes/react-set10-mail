@@ -39,15 +39,9 @@
 }
 
 .navLink {
-  color: gray;
   text-decoration: none;
   padding: 0.5rem 1rem;
   font-weight: 600;
-}
-.navLink:focus,
-.navLink:target {
-  color: red;
-  border-right: 4px solid black;
 }
 
 /*********Filter**********/
@@ -201,9 +195,8 @@ input {
     flex-direction: row;
     justify-content: center;
   }
-  .navLink:focus,
-  .navLink:active {
-    border-right: none;
+  .navLink {
+    border: none !important;
   }
   .card {
     margin-bottom: 0.5rem;
