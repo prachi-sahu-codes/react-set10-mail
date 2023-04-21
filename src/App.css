@@ -6,10 +6,6 @@
   font-family: "Alegreya Sans", sans-serif;
 }
 
-/* "#F0FAFF" : "#FAFFFF"  */
-
-/* "#d5f0ff":"#ecfdfd" */
-
 /*****Main page*****/
 
 .main-heading {
@@ -165,8 +161,28 @@ input {
   padding-left: 0.5rem;
 }
 
-/*****************/
+/********media Queries*********/
 
-.emptyListTitle {
-  margin: 10rem 0 0 22rem;
+@media only screen and (max-width: 700px) {
+  .btn-del,
+  .btn-read,
+  .btn-spam {
+    display: block;
+    margin: 0.4rem;
+  }
+  label {
+    display: block;
+  }
+  .btn-right {
+    display: flex;
+    width: max-content;
+    flex-direction: column;
+    justify-content: right;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .emptyListTitle {
+    margin: 10rem 0 0 22rem;
+  }
 }

@@ -40,7 +40,7 @@ export const Card = ({
             View Details
           </Link>
         )}
-        <div>
+        <div className="btn-right">
           {isDeleted ? (
             <button
               className="btn-del"
