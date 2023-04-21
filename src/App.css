@@ -10,6 +10,14 @@
 
 .main-heading {
   text-align: center;
+  color: #057657;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  padding-bottom: 0.5rem;
+  padding-left: 0.4rem;
 }
 
 .view-flex {

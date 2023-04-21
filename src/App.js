@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { HiMail } from "react-icons/hi";
 
 import "./App.css";
 import { Inbox } from "./pages/Inbox";
@@ -11,7 +12,13 @@ import { NotFound } from "./pages/NotFound";
 function App() {
   return (
     <div className="App">
-      <h1 className="main-heading">Mail Box</h1>
+      <h1 className="main-heading">
+        <span>
+          {" "}
+          <HiMail />
+        </span>
+        <span className="title"> Mail Box</span>
+      </h1>
       <div className="view-flex">
         <Header />
         <Routes>

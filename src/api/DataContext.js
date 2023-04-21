@@ -66,7 +66,11 @@ export const DataProvider = ({ children }) => {
             return email;
           }
         });
-        return { ...state, mails: readUnreadMail };
+        const unread = readUnreadMail.reduce(
+          (acc, email) => (email.unread ? acc + 1 : acc),
+          0
+        );
+        return { ...state, mails: readUnreadMail, unReadCount: unread };
 
       default:
         console.log("Something went wrong");
@@ -74,10 +78,16 @@ export const DataProvider = ({ children }) => {
     }
   };
 
+  const initialUnread = mailData.reduce(
+    (acc, email) => (email.unread ? acc + 1 : acc),
+    0
+  );
+
   const [state, dispatch] = useReducer(mailReducer, {
     mails: [...mailData],
     isRead: false,
     isStarred: false,
+    unReadCount: initialUnread,
   });
 
   const filteredMails = state.mails.filter(
@@ -88,11 +98,6 @@ export const DataProvider = ({ children }) => {
       !mail.isSpammed
   );
 
-  const unread = filteredMails.reduce(
-    (acc, email) => (email.unread ? acc + 1 : acc),
-    0
-  );
-
   return (
     <DataContext.Provider
       value={{
@@ -100,7 +105,7 @@ export const DataProvider = ({ children }) => {
         filteredMails,
         state,
         dispatch,
-        unread,
+        // unread,
       }}
     >
       {children}
