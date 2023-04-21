@@ -39,9 +39,14 @@
 }
 
 .navLink {
+  color: gray;
   text-decoration: none;
   padding: 0.5rem 1rem;
   font-weight: 600;
+}
+.navLink:focus {
+  color: red;
+  border-right: 4px solid black;
 }
 
 /*********Filter**********/
@@ -184,5 +189,24 @@ input {
 @media only screen and (min-width: 1200px) {
   .emptyListTitle {
     margin: 10rem 0 0 22rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .view-flex {
+    display: block;
+  }
+  .sidebar {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .navLink:focus {
+    border-right: none;
+  }
+  .card {
+    margin-bottom: 0.5rem;
+  }
+  .emptyListTitle {
+    text-align: center;
   }
 }
