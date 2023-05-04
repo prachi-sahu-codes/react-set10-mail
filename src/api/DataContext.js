@@ -67,7 +67,7 @@ export const DataProvider = ({ children }) => {
           }
         });
         const unread = readUnreadMail.reduce(
-          (acc, email) => (email.unread ? acc + 1 : acc),
+          (acc, email) => (email.unread ? acc : acc + 1),
           0
         );
         return { ...state, mails: readUnreadMail, unReadCount: unread };
