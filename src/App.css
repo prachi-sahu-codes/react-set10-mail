@@ -183,7 +183,10 @@ input {
 
 @media only screen and (min-width: 1200px) {
   .emptyListTitle {
-    margin: 10rem 0 0 22rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 

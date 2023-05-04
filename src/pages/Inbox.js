@@ -10,7 +10,7 @@ export const Inbox = () => {
     <div className="main-content">
       <Filters />
       <p className="unread-title">
-        Unread:
+        Total Unread Messages:
         <span className="unread-count">{state.unReadCount}</span>
       </p>
       <ul className="card-list">

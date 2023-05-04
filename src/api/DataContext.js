@@ -79,7 +79,7 @@ export const DataProvider = ({ children }) => {
   };
 
   const initialUnread = mailData.reduce(
-    (acc, email) => (email.unread ? acc + 1 : acc),
+    (acc, email) => (email.unread ? acc : acc + 1),
     0
   );
 
